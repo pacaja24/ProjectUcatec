@@ -10,6 +10,7 @@ import { RegisterService } from './../../services/register.service';
   templateUrl: './login.page.html',
   styleUrls: ['./login.page.scss'],
 })
+
 export class LoginPage {
 
   email: string;

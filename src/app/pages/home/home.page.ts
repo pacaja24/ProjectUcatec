@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { CompanyService } from 'src/app/services/company.service';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +9,35 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomePage implements OnInit {
 
-  constructor() { }
+  user: any;
+
+  constructor(
+    private company: CompanyService,
+    private router: Router
+  ) {}
 
   ngOnInit() {
+    this.company.getEmail().then(result => {
+      this.getData(result);
+    });
+  }
+
+  getData(email) {
+    this.company.getUserData(email).subscribe(res => {
+      this.user = res.user;
+    });
+  }
+
+  reviewPage() {
+    this.router.navigate(['/review']);
+  }
+
+  goToSearch() {
+    this.router.navigate(['/search']);
+  }
+
+  addCompany() {
+    this.router.navigate(['/create-company']);
   }
 
 }
