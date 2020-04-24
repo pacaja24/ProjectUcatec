@@ -4,7 +4,7 @@
     <div>
       <ion-row style="align-items:center">
         <ion-col col-12 class="imgCol">
-          <img *ngIf="user" class="user-avatar round">
+          <img *ngIf="user" class="user-avatar round" src="http://res.cloudinary.com/rateapi/image/upload/v{{user.imageVersion}}/{{user.imageId}}">
         </ion-col>
       </ion-row>
       <ion-row style="justify-content: center">
@@ -13,15 +13,30 @@
     </div>
     
     <ion-list no-lines class="ion-list-hydrated">
-      <ion-menu-toggle *ngFor="let p of pages">
-        <ion-item [href]="p.url">
-          <ion-icon [name]="p.icon" slot="start"></ion-icon>
-          <ion-label>
-            {{ p.title }}
-          </ion-label>
+      <ion-menu-toggle>
+        <ion-item (click)="createCompany()">
+          <ion-icon name="create" slot="start"></ion-icon>
+          <ion-label>Create Company</ion-label>
         </ion-item>
       </ion-menu-toggle>
-
+      <ion-menu-toggle>
+        <ion-item (click)="companies()">
+          <ion-icon name="logo-slack" slot="start"></ion-icon>
+          <ion-label>Companies</ion-label>
+        </ion-item>
+      </ion-menu-toggle>
+      <ion-menu-toggle>
+        <ion-item (click)="search()">
+          <ion-icon name="search" slot="start"></ion-icon>
+          <ion-label>Search</ion-label>
+        </ion-item>
+      </ion-menu-toggle>
+      <ion-menu-toggle>
+        <ion-item (click)="leaderboard()">
+          <ion-icon name="archive" slot="start"></ion-icon>
+          <ion-label>Leaderboard</ion-label>
+        </ion-item>
+      </ion-menu-toggle>
       <ion-menu-toggle>
         <ion-item (click)="settings()">
           <ion-icon name="settings" slot="start"></ion-icon>

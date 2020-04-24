@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
+import { IonicRatingModule } from 'ionic4-rating';
 
 import { CompaniesPageRoutingModule } from './companies-routing.module';
 
@@ -13,7 +14,8 @@ import { CompaniesPage } from './companies.page';
     CommonModule,
     FormsModule,
     IonicModule,
-    CompaniesPageRoutingModule
+    CompaniesPageRoutingModule,
+    IonicRatingModule
   ],
   declarations: [CompaniesPage]
 })

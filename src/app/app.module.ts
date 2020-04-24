@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { IonicStorageModule } from '@ionic/storage';
+import { IonicRatingModule } from 'ionic4-rating';
 
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
@@ -14,7 +15,14 @@ import { AppRoutingModule } from './app-routing.module';
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(),IonicStorageModule.forRoot(), HttpClientModule, AppRoutingModule],
+  imports: [
+    BrowserModule, 
+    IonicModule.forRoot(),
+    IonicStorageModule.forRoot(),
+    HttpClientModule, 
+    AppRoutingModule,
+    IonicRatingModule
+  ],
   providers: [
     StatusBar,
     SplashScreen,

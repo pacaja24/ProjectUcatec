@@ -46,7 +46,7 @@ const routes: Routes = [
   {
     path: 'view-reviews',
     loadChildren: () => import('./pages/view-reviews/view-reviews.module').then( m => m.ViewReviewsPageModule)
-  },
+  }
 ];
 
 @NgModule({

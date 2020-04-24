@@ -27,18 +27,6 @@ export class AppComponent {
   ) {
     this.initializeApp();
 
-    this.pages = [
-      { title: 'Home', url: '/home', icon: 'home' },
-      {
-        title: 'Create Company',
-        url: '/create-company',
-        icon: 'create'
-      },
-      { title: 'Companies', url: '/companies', icon: 'logo-slack' },
-      { title: 'Search', url: '/search', icon: 'search' },
-      { title: 'Leaderboard', url: '/leaderboard', icon: 'archive' }
-    ];
-
     this.company.getEmail().then(result => {
       if (result === null) {
         this.navCtrl.navigateRoot('/login');
@@ -49,18 +37,31 @@ export class AppComponent {
           .subscribe(res => {
             this.user = res.user;
             this.navCtrl.navigateRoot('/home');
+            console.log("error encontrado");
           }, () => {
             this.navCtrl.navigateRoot('/login');
           });
       }
     });
   }
-
+  
   initializeApp() {
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
     });
+  }
+  createCompany(){
+    this.router.navigate(['/create-company']);
+  }
+  companies(){
+    this.router.navigate(['/companies']);
+  }
+  search(){
+    this.router.navigate(['/search']);
+  }
+  leaderboard(){
+    this.router.navigate(['/leaderboard']);
   }
   settings() {
     this.router.navigate(['/settings']);
