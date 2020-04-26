@@ -7,13 +7,17 @@ import { IonicModule } from '@ionic/angular';
 import { ViewReviewsPageRoutingModule } from './view-reviews-routing.module';
 
 import { ViewReviewsPage } from './view-reviews.page';
+import { IonicRatingModule } from 'ionic4-rating';
+import { NewratingModule } from 'src/app/components/newrating/newrating.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    ViewReviewsPageRoutingModule
+    ViewReviewsPageRoutingModule,
+    IonicRatingModule,
+    NewratingModule
   ],
   declarations: [ViewReviewsPage]
 })

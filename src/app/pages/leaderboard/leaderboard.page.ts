@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CompanyService } from 'src/app/services/company.service';
 
 @Component({
   selector: 'app-leaderboard',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LeaderboardPage implements OnInit {
 
-  constructor() { }
+  companies = [];
+
+  constructor(private company: CompanyService) { }
 
   ngOnInit() {
+    this.company.leaderBoard()
+      .subscribe(res => {
+        this.companies = res.result;
+      });
   }
+
 
 }
